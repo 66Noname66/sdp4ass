@@ -1,6 +1,6 @@
 # Assignment #4 — Facade Pattern
 
-## Course Information
+Course Information
 Course: Software Design Patterns
 Assignment: #4 — Facade Pattern
 Student: Damir Seipenov
@@ -16,11 +16,11 @@ The program simulates the media conversion process and writes processed sample d
 
 ## 2. Project Objectives
 
-- Understand the purpose of the Facade design pattern.
-- Implement a facade that simplifies access to a complex subsystem.
-- Separate responsibilities between subsystem classes.
-- Reduce coupling between the client and subsystem.
-- Demonstrate how multiple classes can work together through a unified interface.
+Understand the purpose of the Facade design pattern.
+Implement a facade that simplifies access to a complex subsystem.
+Separate responsibilities between subsystem classes.
+Reduce coupling between the client and subsystem.
+Demonstrate how multiple classes can work together through a unified interface.
 
 ## 3. Project Structure
 
@@ -38,32 +38,32 @@ FacadePatternAssignment/
 
 ## 4. Class Descriptions
 
-### Main.java
+Main.java
 The client class. It creates a `MediaConversionFacade` object and calls the `convert()` method without accessing subsystem classes directly.
 
-### MetadataReader.java
+MetadataReader.java
 Detects the source file format from its extension and generates simulated file metadata.
 
-### CodecFactory.java
+CodecFactory.java
 Checks supported formats and selects the corresponding codec. Supported formats are MP3, WAV, and OGG.
 
-### BitrateReader.java
+BitrateReader.java
 Reads simulated audio data and processes the byte array.
 
-### AudioMixer.java
+AudioMixer.java
 Prepares the output data by adding a header containing the target format.
 
-### MediaConversionFacade.java
+MediaConversionFacade.java
 The main facade class. It coordinates metadata reading, codec selection, data processing, output preparation, and file writing through a single public method.
 
 ## 5. How to Run the Project
 
-### Requirements
+ Requirements
 
-- Java Development Kit (JDK) 17
-- IntelliJ IDEA or another Java IDE
+Java Development Kit (JDK) 17
+IntelliJ IDEA or another Java IDE
 
-### Instructions
+Instructions
 
 1. Open the project in IntelliJ IDEA.
 2. Make sure JDK 17 is configured.
@@ -72,24 +72,22 @@ The main facade class. It coordinates metadata reading, codec selection, data pr
 5. Run the `main()` method.
 6. Check the console output and the generated output file.
 
+
 ## 6. Example Usage
 
-```java
+
 MediaConversionFacade converter =
         new MediaConversionFacade();
 
 String outputFile = converter.convert("song.wav", "mp3");
-```
+
 
 The program processes the simulated audio data and creates an output file named:
 
-```text
 song_converted.mp3
-```
 
-## 7. Expected Output
+ ## 7. Expected Output
 
-```text
 MetadataReader: Detected format: wav
 MetadataReader: Title: song.wav, Duration: 180 seconds
 CodecFactory: Selected WAV Codec
@@ -99,11 +97,10 @@ BitrateReader: Processed audio using WAV Codec
 AudioMixer: Prepared output for MP3
 Conversion completed successfully.
 Output file: song_converted.mp3
-```
 
 The actual output includes the number of bytes read and the size of the generated file.
 
-## 8. Design Pattern Explanation
+ ## 8. Design Pattern Explanation
 
 The Facade pattern provides a simplified interface to a complex subsystem.
 
@@ -111,13 +108,13 @@ In this project, `MediaConversionFacade` hides the internal details of the conve
 
 The facade coordinates the subsystem classes in the correct order. Each subsystem class has a specific responsibility, making the program easier to understand and maintain.
 
-## Advantages
+Advantages
 
-- Simplifies interaction with multiple classes.
-- Reduces coupling between the client and subsystem.
-- Centralizes the conversion workflow.
-- Keeps subsystem responsibilities separate.
-- Makes the client code easier to read.
+ Simplifies interaction with multiple classes.
+ Reduces coupling between the client and subsystem.
+ Centralizes the conversion workflow.
+ Keeps subsystem responsibilities separate.
+ Makes the client code easier to read.
 
 ## 9. Conclusion
 
